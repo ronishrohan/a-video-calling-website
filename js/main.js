@@ -2,6 +2,9 @@ let TOKEN;
 
 var client;
 
+let cameraOn = true;
+let micOn = true;
+
 const url = "https://asgajsgjasg.azurewebsites.net/generate-token";
 const data = {
   channelname: null,
@@ -203,10 +206,7 @@ document
   });
 
 function handleElementsUserSubscribed(participant) {
-  addElm = `<p class="participant">${participant}</p>`;
-  document
-    .getElementById("member-list")
-    .insertAdjacentHTML("beforeend", addElm);
+  
   document.getElementById("participant-count").value = participants.length;
 }
 
@@ -231,3 +231,14 @@ document.getElementById('add-participant').addEventListener("mouseover", () => {
 document.getElementById('add-participant').addEventListener("mouseout", () => {
   document.getElementById('add-participant').textContent = "+";
 });
+
+
+document.getElementById('camera-toggle').addEventListener("click",  () => {
+  cameraOn = !cameraOn;
+  localTracks.videoTrack.setMuted(cameraOn);
+})
+
+document.getElementById('mic-toggle').addEventListener('click', () => {
+  micOn = !micOn;
+  localTracks.audioTrack.setMuted(micOn);
+})
