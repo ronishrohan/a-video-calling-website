@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>calling</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css" />
+  <script src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&family=Oranienbaum&family=Space+Grotesk:wght@300;400&display=swap"
+    rel="stylesheet">
+  <header id="nav-bar">
+    <div class="nav-list">
+      <h3 id="logo">
+        <span>a video calling website</span>
+      </h3>
+    </div>
+
+    <div class="nav-links">
+      
+      <a class="nav-link" id="create-room-button" href="lobby.html">
+        <span>Create Room</span>
+      </a>
+      
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="room-container">
+      <section id="participants-container">
+        <div id="participants-header">
+          <p>Participants</p>
+          <p id="participant-count">0</p>
+        </div>
+        <button id="add-participant"><span>+</span></button>
+        <div id="member-list">
+          <p id="empty-message">theres no one here :(</p>
+          
+
+        </div>
+
+      </section>
+      
+      <section id="stream-container">
+        <div id="stream-box" >
+          <div id="local-player" class="player"></div>
+          <h1 id="user-name" class="title" >hi</h1>
+        </div>
+        <div  id="remote-streams-container" class="streams-container">
+          
+        </div>
+        <div class="stream-actions">
+          <button id="camera-toggle">
+            <svg fill="#000000" height="24px" width="24px" version="1.1" id="Filled_Icons"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g id="Video-Filled">
+                  <path d="M16,19H1V5h15V19z M16,15l7,4V5l-7,4"></path>
+                </g>
+              </g>
+            </svg>
+          </button>
+          <button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="2" width="8" height="13" rx="4" fill="#222222" />
+              <path
+                d="M5 11C5 12.8565 5.7375 14.637 7.05025 15.9497C8.36301 17.2625 10.1435 18 12 18C13.8565 18 15.637 17.2625 16.9497 15.9497C18.2625 14.637 19 12.8565 19 11"
+                stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 21V19" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path opacity="0.15"
+                d="M4 6C4 5.44771 4.44772 5 5 5H19C19.5523 5 20 5.44772 20 6V15C20 15.5523 19.5523 16 19 16H5C4.44772 16 4 15.5523 4 15V6Z"
+                fill="#000000" />
+              <path
+                d="M12 20H16M12 20H8M12 20V16M12 16H5C4.44772 16 4 15.5523 4 15V6C4 5.44771 4.44772 5 5 5H19C19.5523 5 20 5.44772 20 6V15C20 15.5523 19.5523 16 19 16H12Z"
+                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button id="leave-button" >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Interface / Exit">
+                <path id="Vector"
+                  d="M12 15L15 12M15 12L12 9M15 12H4M4 7.24802V7.2002C4 6.08009 4 5.51962 4.21799 5.0918C4.40973 4.71547 4.71547 4.40973 5.0918 4.21799C5.51962 4 6.08009 4 7.2002 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H7.19691C6.07899 20 5.5192 20 5.0918 19.7822C4.71547 19.5905 4.40973 19.2839 4.21799 18.9076C4 18.4798 4 17.9201 4 16.8V16.75"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </button>
+        </div>
+      </section>
+      <section id="chat-container">
+        <div class="message-wrapper">
+          <p class="npc-message">welcome to the room!</p>
+        </div>
+
+        <form id="chat-input"">
+            <input type=" text" name="chat" placeholder="send a message..." \>
+          <button><span>></span></button>
+        </form>
+        
+
+      </section>
+    </div>
+  </main>
+</body>
+<script src="./js/AgoraRTC_N-4.20.0.js" ></script>
+<script src="./js/main.js"></script>
+
+
+
+</html>

@@ -1,0 +1,111 @@
+:root {
+    --beige: #0e131f;
+    --beigedarker: #f2e8cf;
+    --darkbrown: #362c28;
+    --buttons: #fff3b0;
+    --orangehover: #f3c969;
+    --videohover: #646056;
+    --purplish: #9829ff;
+    --purplish_darker: rgb(95, 50, 201);
+    --purplish_actually_darker: #291c5e;
+  }
+  
+
+
+*{
+    font-family: "Space Grotesk", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#name-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#name-input p{
+    padding-bottom: 10px;
+}
+
+#name-input input{
+    outline: none;
+    border: var(--purplish_actually_darker) solid 1px;
+    font-size: 16px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 24px;
+    outline: none;
+    transition: background-color 300ms,
+    box-shadow 100ms;
+}
+
+#name-input input:focus{
+    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.349);
+    background-color: white;
+    
+}
+
+
+.lobby-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    
+}
+
+#lobby-options-container{
+    background-color: #150e22;
+    height: 300px;
+    width: 400px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: var(--purplish_actually_darker) solid 1px;
+    overflow: hidden;
+    
+    
+}
+
+#lobby-options-container div{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+#lobby-options-container button{
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border: var(--purplish_darker) solid 1px;
+    border-radius: 24px;
+    padding: 10px;
+    
+    width: 150px;
+    transition: 80ms ease-out;
+}
+
+#lobby-options-container button:hover{
+    box-shadow: 0px 0px 50px var(--purplish_darker);
+    background-color: var(--purplish_darker);
+    text-shadow: white 0px 0px 1.75px;
+    border-color: white;
+    transform: scale(1.05);
+    
+    
+
+}
+
