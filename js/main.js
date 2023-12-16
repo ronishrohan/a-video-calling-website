@@ -95,6 +95,13 @@ async function join() {
   );
   client.on("user-unpublished", handleUserUnpublished);
 
+  client.on("userOffline", (uid, reason) => {
+    console.log("LEFTLEFTLEFTLEFT"+  uid);
+    delete remoteUsers[uid];
+    let player = `remote-stream-${uid}`;
+    document.getElementById(player).remove();
+  });
+
   options.uid = await client.join(options.appid, ROOMID, TOKEN.token, name);
 
   if (!localTracks.audioTrack) {
@@ -174,8 +181,10 @@ function handleUserPublished(user, mediaType) {
 
 function handleUserUnpublished(user, mediatype) {
   if (mediatype === "video") {
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA THANKS"+user.uid);
     const id = user.uid;
     delete remoteUsers[id];
+    document.getElementById(`remote-stream-${id}`).remove();
   }
 }
 
