@@ -138,7 +138,7 @@ async function leave() {
 
   await client.leave();
   console.log("Client left the channel succesfully");
-  window.location = "lobby.html"
+  window.location = "index.html"
 }
 
 async function subscribe(user, mediaType, userID) {
@@ -213,7 +213,7 @@ function handleElementsUserSubscribed(participant){
 }
 
 document.getElementById('logo').addEventListener('click', () => {
-  window.location = 'lobby.html'
+  window.location = 'index.html'
 });
 
 document.getElementById('add-participant').addEventListener('click', () => {
