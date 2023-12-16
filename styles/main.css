@@ -109,6 +109,10 @@ p {
   width: 350px;
   transition: 80ms ease-out;
 }
+#create-room-button:active{
+  box-shadow: 0px 0px 70px var(--purplish_darker);
+  scale: 0.96;
+}
 
 #create-room-button::before {
   content: "or join a room idk";
@@ -219,6 +223,8 @@ p {
   opacity: 1;
 }
 
+
+
 #chat-input input:focus {
   background-color: #171327;
   border-color: rgba(255, 255, 255, 0.5);
@@ -276,7 +282,7 @@ p {
 }
 
 #stream-box {
-  border: 2px solid rgba(93, 74, 197, 0.336);
+  border: 1px solid var(--purplish_actually_darker);
   display: flex;
   overflow: hidden;
   position: relative;
@@ -443,7 +449,7 @@ p {
   border: var(--purplish_darker) solid 1px;
   border-radius: 24px;
   padding: 10px;
-
+  
   width: 150px;
   transition: 150ms ease-out;
   position: fixed;
@@ -459,7 +465,12 @@ p {
   transform: scale(1.05);
 }
 
-#add-participant span {
+#add-participant:active{
+  box-shadow: 0px 0px 70px var(--purplish_darker);
+  scale: 0.96;
+}
+
+/* #add-participant span {
   opacity: 1;
   transition: 100ms;
 }
@@ -475,6 +486,11 @@ p {
   opacity: 0;
   transition: 300ms;
 }
+.add-participant-edited::before{
+  position: absolute;
+  content: "copied";
+  opacity: 1;
+}
 
 #add-participant:hover::after {
   color: white;
@@ -482,7 +498,7 @@ p {
   opacity: 1;
 
   content: "invite";
-}
+} */
 
 #stream-container:hover .stream-actions {
   opacity: 1;
@@ -569,12 +585,13 @@ p {
 
 .stream-actions a:active,
 .stream-actions button:active {
-  background: #c2c0af;
+  background: var(--purplish_actually_darker);
+  
 }
 
 ::selection {
-  background-color: var(--darkbrown);
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 input:focus {

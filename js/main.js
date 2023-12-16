@@ -217,5 +217,17 @@ document.getElementById("logo").addEventListener("click", () => {
 document.getElementById("add-participant").addEventListener("click", () => {
   console.log("CLICKed");
   navigator.clipboard.writeText(ROOMID);
-  alert(`Room id: ${ROOMID} copied to your clipboard`);
+  //alert(`Room id: ${ROOMID} copied to your clipboard`);
+  
+  
+});
+document.getElementById('add-participant').addEventListener("mousedown", () => {
+  document.getElementById('add-participant').textContent = "copied"
+});
+
+document.getElementById('add-participant').addEventListener("mouseover", () => {
+  document.getElementById('add-participant').textContent = "invite";
+});
+document.getElementById('add-participant').addEventListener("mouseout", () => {
+  document.getElementById('add-participant').textContent = "+";
 });
