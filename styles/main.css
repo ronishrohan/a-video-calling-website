@@ -485,6 +485,7 @@ p {
 
 #stream-container:hover .stream-actions {
   opacity: 1;
+  bottom: 0.8rem;
 }
 
 .stream-actions {

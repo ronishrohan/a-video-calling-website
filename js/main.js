@@ -2,7 +2,7 @@ let TOKEN;
 
 var client;
 
-const url = "http://localhost:3000/generate-token";
+const url = "https://asgajsgjasg.azurewebsites.net/generate-token";
 const data = {
   channelname: null,
   uid: null,
