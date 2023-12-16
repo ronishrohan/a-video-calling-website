@@ -2,17 +2,14 @@ let TOKEN;
 
 var client;
 
-const url = 'http://localhost:3000/generate-token'
+const url = "http://localhost:3000/generate-token";
 const data = {
   channelname: null,
   uid: null,
-  role: 'publisher'
+  role: "publisher",
 };
 
 const APPID = "df5cbc837ccb4ff1accd5ccecc512fba";
-
-
-
 
 var localTracks = {
   videoTrack: null,
@@ -29,29 +26,28 @@ participants.push(`${name}(you)`);
 
 const searchParams = new URLSearchParams(window.location.search);
 
-let ROOMID = searchParams.get('room');
+let ROOMID = searchParams.get("room");
 
 data.channelname = ROOMID;
 data.uid = name;
 
-
-async function getToken(){
+async function getToken() {
   return fetch(url, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type' : 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  }).then(response => response.json())
-  .then(data => {
-    return data;
-  });  
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
 }
 
-async function setToken(){
+async function setToken() {
   TOKEN = await getToken();
 }
-
 
 document.getElementsByClassName("title")[0].textContent = name;
 participants.push(name);
@@ -99,13 +95,8 @@ async function join() {
   );
   client.on("user-unpublished", handleUserUnpublished);
 
-  options.uid = await client.join(
-    options.appid,
-    ROOMID,
-    TOKEN.token,
-    name
-  );
-  
+  options.uid = await client.join(options.appid, ROOMID, TOKEN.token, name);
+
   if (!localTracks.audioTrack) {
     localTracks.audioTrack = await AgoraRTC.createMicrophoneAudioTrack({
       encoderConfig: "music_standard",
@@ -132,13 +123,12 @@ async function leave() {
       localTracks[trackName] = undefined;
     }
   }
-  
 
   remoteUsers = {};
 
   await client.leave();
   console.log("Client left the channel succesfully");
-  window.location = "index.html"
+  window.location = "index.html";
 }
 
 async function subscribe(user, mediaType, userID) {
@@ -156,7 +146,7 @@ async function subscribe(user, mediaType, userID) {
       .getElementById("remote-streams-container")
       .insertAdjacentHTML("beforeend", player);
     user.videoTrack.play(`player-${userID}`);
-    
+
     handleElementsUserSubscribed(userName);
   }
 
@@ -168,7 +158,8 @@ async function subscribe(user, mediaType, userID) {
   if (!participants.includes(inName)) {
     participants.push(inName);
   }
-  document.getElementById('participant-count').textContent = participants.length-1;
+  document.getElementById("participant-count").textContent =
+    participants.length - 1;
   document
     .getElementById("empty-message")
     .style.setProperty("display", "none", "important");
@@ -177,7 +168,7 @@ async function subscribe(user, mediaType, userID) {
 function handleUserPublished(user, mediaType) {
   const id = user.uid;
   remoteUsers[id] = user;
-  
+
   subscribe(user, mediaType, id);
 }
 
@@ -188,13 +179,13 @@ function handleUserUnpublished(user, mediatype) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', async function () {
-    client = AgoraRTC.createClient({
-      mode: "rtc",
-      codec: "vp9",
-    });
-    await join();
+document.addEventListener("DOMContentLoaded", async function () {
+  client = AgoraRTC.createClient({
+    mode: "rtc",
+    codec: "vp9",
   });
+  await join();
+});
 
 document
   .getElementById("leave-button")
@@ -202,22 +193,20 @@ document
     await leave();
   });
 
-
-
-function handleElementsUserSubscribed(participant){
+function handleElementsUserSubscribed(participant) {
   addElm = `<p class="participant">${participant}</p>`;
   document
     .getElementById("member-list")
     .insertAdjacentHTML("beforeend", addElm);
-  document.getElementById('participant-count').value = participants.length;
+  document.getElementById("participant-count").value = participants.length;
 }
 
-document.getElementById('logo').addEventListener('click', () => {
-  window.location = 'index.html'
+document.getElementById("logo").addEventListener("click", () => {
+  window.location = "index.html";
 });
 
-document.getElementById('add-participant').addEventListener('click', () => {
-  console.log("CLICKed")
+document.getElementById("add-participant").addEventListener("click", () => {
+  console.log("CLICKed");
   navigator.clipboard.writeText(ROOMID);
-  alert(`Room id: ${ROOMID} copied to your clipboard`)
+  alert(`Room id: ${ROOMID} copied to your clipboard`);
 });

@@ -21,19 +21,26 @@ createButton.addEventListener("click", () => {
 
 function handleRoomConnection(type){
     let updatedName = inputButton.value; 
-    sessionStorage.setItem("displayName", updatedName);
-    sessionStorage.setItem("user-name", updatedName);
-    console.log(type);
-    if(type === "join"){
-        roomCode = prompt("Enter room code:");
-        if(!roomCode){
-            roomcode = askPromptAgain();
-        }
-        window.location = `room.html?room=${roomCode}`;
+    if (!updatedName){
+        
+        alert("you need to enter a valid name")
+        
     }
-    if(type === "create"){
-        roomCode = String(Math.floor(Math.random()*10000))
-        window.location = `room.html?room=${roomCode}`;
+    else{
+        sessionStorage.setItem("displayName", updatedName);
+        sessionStorage.setItem("user-name", updatedName);
+        console.log(type);
+        if(type === "join"){
+            roomCode = prompt("Enter room code:");
+            if(!roomCode){
+                roomcode = askPromptAgain();
+            }
+            window.location = `room.html?room=${roomCode}`;
+        }
+        if(type === "create"){
+            roomCode = String(Math.floor(Math.random()*10000))
+            window.location = `room.html?room=${roomCode}`;
+        }
     }
 }
 function askPromptAgain(){

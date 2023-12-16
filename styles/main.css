@@ -11,26 +11,25 @@
   --purplish_actually_darker: #291c5e;
   --border-color: #21283f;
 }
-*{
+* {
   scrollbar-width: none;
 }
 
-.participant{
+.participant {
   margin: 0;
   justify-self: left;
   padding-top: 7px;
   padding-bottom: 7px;
   font-size: 14px;
   font-weight: normal;
-  
 }
 
-.player{
+.player {
   width: 100%;
   height: 100%;
-  transform: scale(-1,1);
+  transform: scale(-1, 1);
 }
-*{
+* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -77,7 +76,7 @@ p {
   color: white;
   margin: 0;
   padding: 14px;
-  
+
   left: -50%;
   transform: translateX(calc(15.8rem / 2));
 }
@@ -106,46 +105,35 @@ p {
   border: var(--purplish_darker) solid 1px;
   border-radius: 24px;
   padding: 10px;
-  
+
   width: 350px;
   transition: 80ms ease-out;
-  
-  
-  
-  
 }
 
-#create-room-button::before{
+#create-room-button::before {
   content: "or join a room idk";
   opacity: 0;
   position: absolute;
   transition: 200ms ease-in-out;
 }
 
-#create-room-button span{
+#create-room-button span {
   transition: 200ms ease-in-out;
 }
 
-#create-room-button:hover span{
+#create-room-button:hover span {
   opacity: 0;
 }
 
-#create-room-button:hover::before{
+#create-room-button:hover::before {
   opacity: 1;
 }
 
-
-
-
 #create-room-button:hover {
-  
   box-shadow: 0px 0px 50px var(--purplish_darker);
   background-color: var(--purplish_darker);
   text-shadow: white 0px 0px 1.75px;
   border-color: white;
-  
-  
-  
 }
 
 .container {
@@ -167,12 +155,7 @@ p {
   transition: 300ms ease-in-out;
 }
 
-
-
-
-
 #chat-input input {
-  
   overflow: hidden;
   font-family: "Space Grotesk", sans-serif;
   border: none;
@@ -184,16 +167,13 @@ p {
   box-sizing: border-box;
   border: 1px solid var(--purplish_actually_darker);
   border-radius: 24px;
-  
+
   padding: 1rem;
-  
+
   transition: 250ms;
 }
 
-
-
 #chat-input button {
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,49 +195,36 @@ p {
   border-radius: 24px;
   outline: none;
   color: whitesmoke;
-  
-  
+
   transition: 150ms ease-in-out;
 }
 
 #chat-input button:hover {
-  
   box-shadow: 0px 0px 50px var(--purplish_darker);
   background-color: var(--purplish_darker);
   border: 1px white solid;
-  
+
   padding-left: 100px;
-  
 }
 
-#chat-input button::after{
-  
-  content: 'send';
+#chat-input button::after {
+  content: "send";
   position: absolute;
   right: 40%;
   transition: 100ms ease-out;
   opacity: 0;
-  
 }
 
-#chat-input button:hover::after{
-  
-
-  
+#chat-input button:hover::after {
   opacity: 1;
-  
-  
 }
 
 #chat-input input:focus {
-  
-  
   background-color: #171327;
   border-color: rgba(255, 255, 255, 0.5);
 }
 
 .npc-message {
-  
   user-select: none;
   padding-left: 8rem;
   font-weight: 800;
@@ -281,7 +248,6 @@ p {
 }
 
 #chat-container {
-  
   box-sizing: border-box;
   margin-right: 2px;
   scrollbar-width: none;
@@ -290,7 +256,7 @@ p {
   border: 1px solid var(--purplish_actually_darker);
   border-radius: 24px;
   right: 0;
-  
+
   position: fixed;
   height: 100vh;
   overflow-y: scroll;
@@ -303,11 +269,10 @@ p {
   justify-self: center;
   width: calc(100% - 40.8rem);
   position: fixed;
-  
+
   left: 15.8rem;
 
   overflow-y: auto;
-  
 }
 
 #stream-box {
@@ -322,7 +287,6 @@ p {
   margin: 15px;
   margin-bottom: 0px;
   transition: 250ms;
-  
 }
 
 #stream-box:hover {
@@ -330,9 +294,8 @@ p {
   outline-offset: 8px;
   outline-style: dashed; */
   border-color: var(--purplish_darker);
-  
 }
-.title-smaller{
+.title-smaller {
   justify-self: center;
   align-self: center;
   display: flex;
@@ -341,26 +304,24 @@ p {
   position: absolute;
   bottom: -10px;
   scale: 1;
-  
+
   font-size: 12px;
   color: rgba(255, 255, 255, 0.8);
-  
-  
+
   border-radius: 12px;
   height: 30px;
   width: 80px;
-  
 }
 
-.title{
+.title {
   justify-self: center;
   align-self: center;
   display: flex;
   align-items: center;
-  
+
   justify-content: center;
   position: absolute;
-  
+
   bottom: 0;
   margin-left: 10px;
   font-size: 12px;
@@ -371,21 +332,15 @@ p {
   border-radius: 24px;
   height: 30px;
   width: 80px;
-  
-  
 }
 
-#local-video{
+#local-video {
   position: absolute;
   width: 100%;
   z-index: 9999;
-  
+
   left: 0;
 }
-
-
-
-
 
 .video-container {
   position: relative;
@@ -404,11 +359,8 @@ p {
 }
 
 .video-container:hover {
-  
   border-color: var(--purplish_darker);
 }
-
-
 
 .streams-container {
   display: flex;
@@ -425,7 +377,7 @@ p {
 #participants-container {
   position: absolute;
   border-radius: 24px;
-  
+
   padding: 5px;
   box-sizing: border-box;
   border: 1px solid var(--purplish_actually_darker);
@@ -433,33 +385,30 @@ p {
   margin-top: 15px;
   background-color: #150e22;
   justify-content: center;
-  
+
   left: 0;
   position: fixed;
   overflow-y: auto;
   width: 100%;
   max-width: 15.8rem;
   height: 100%;
-  
-  
-  
+
   z-index: 998;
 }
 
-#member-list{
+#member-list {
   text-align: left;
   margin-left: 0;
-  
+
   left: 10px;
   position: absolute;
   top: 40px;
   display: flex;
   flex-direction: column;
-  
 }
 
 #participants-header {
- width: 100%;
+  width: 100%;
   border-radius: 24px;
   display: flex;
   justify-content: space-around;
@@ -471,14 +420,12 @@ p {
   height: 3em;
 }
 
-
 #participant-count {
   font-size: 14px;
-  
+
   border-radius: 8px;
   padding-left: 20px;
   padding-right: 20px;
-  
 }
 
 #add-participant {
@@ -495,14 +442,12 @@ p {
   border: var(--purplish_darker) solid 1px;
   border-radius: 24px;
   padding: 10px;
-  
+
   width: 150px;
   transition: 150ms ease-out;
   position: fixed;
-  
 
   bottom: 2rem;
-  
 }
 
 #add-participant:hover {
@@ -511,36 +456,34 @@ p {
   text-shadow: white 0px 0px 1.75px;
   border-color: white;
   transform: scale(1.05);
-  
-  
 }
 
-#add-participant span{
+#add-participant span {
   opacity: 1;
   transition: 100ms;
 }
 
-#add-participant:hover span{
+#add-participant:hover span {
   opacity: 0;
 }
 
-#add-participant::after{
+#add-participant::after {
   color: white;
-  content: '';
+  content: "";
   position: absolute;
   opacity: 0;
   transition: 300ms;
 }
 
-#add-participant:hover::after{
+#add-participant:hover::after {
   color: white;
-  
+
   opacity: 1;
-  
-  content: 'invite';
+
+  content: "invite";
 }
 
-#stream-container:hover .stream-actions{
+#stream-container:hover .stream-actions {
   opacity: 1;
 }
 
@@ -550,7 +493,7 @@ p {
   bottom: 1.5rem;
   border-radius: 36px;
   display: flex;
-  
+
   background-color: #1f1c3d;
   border: 1px solid rgba(93, 74, 197, 0.336);
   left: calc(50vw - 11.3rem);
@@ -559,8 +502,6 @@ p {
   transition: 90ms ease-out;
   overflow: hidden;
 }
-
-
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -573,7 +514,6 @@ p {
 ::-webkit-scrollbar-thumb {
   background-color: #362c28;
 }
-
 
 .stream-actions a,
 .stream-actions button {
@@ -591,27 +531,25 @@ p {
   border: 1px rgba(255, 255, 255, 0.103) solid;
   border-radius: 24px;
   padding: 10px;
-  
+
   transition: 250ms ease-out;
-  
 }
 
-.stream-actions svg{
-  
-  filter: invert(30%) sepia(100%) hue-rotate(200deg) saturate(200%) brightness(130%);
+.stream-actions svg {
+  filter: invert(30%) sepia(100%) hue-rotate(200deg) saturate(200%)
+    brightness(130%);
   transition: 200ms ease-out;
-  
 }
 
-#leave-button:hover svg{
-  filter: invert(30%) sepia(100%) hue-rotate(310deg) saturate(1200%) brightness(1000%);
+#leave-button:hover svg {
+  filter: invert(30%) sepia(100%) hue-rotate(310deg) saturate(1200%)
+    brightness(1000%);
 }
 
-#leave-button:hover{
+#leave-button:hover {
   background-color: rgba(255, 67, 67, 0.582);
   box-shadow: 0px 0px 140px rgb(255, 31, 31), 0px 0px 40px rgb(255, 31, 31);
   border-color: rgba(253, 26, 26, 0.952);
-  
 }
 
 .stream-actions a:hover,
@@ -620,15 +558,11 @@ p {
   background-color: #6647b9c7;
   box-shadow: 0px 0px 140px rgb(146, 88, 255), 0px 0px 40px rgb(129, 85, 233);
   border: 1px white solid;
-  
-  
-  
-  
-  
 }
 
-.stream-actions button:hover svg{
-  filter: invert(30%) sepia(100%) hue-rotate(310deg) saturate(900%) brightness(1000%);
+.stream-actions button:hover svg {
+  filter: invert(30%) sepia(100%) hue-rotate(310deg) saturate(900%)
+    brightness(1000%);
 }
 
 .stream-actions a:active,
