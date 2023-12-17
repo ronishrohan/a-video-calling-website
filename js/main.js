@@ -242,3 +242,14 @@ document.getElementById('mic-toggle').addEventListener('click', () => {
   micOn = !micOn;
   localTracks.audioTrack.setMuted(micOn);
 })
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("LOADED");
+  setTimeout(() => {
+    gsap.to("#transition",{
+      height: "0",
+      
+      duration: 0.2
+    });
+  }, 100);
+});

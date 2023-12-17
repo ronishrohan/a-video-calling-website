@@ -1,3 +1,6 @@
+let isLoading = true;
+let mx = "50%";
+let my = "50%";
 let inputButton = document.getElementById("name-input-box");
 let displayName = sessionStorage.getItem("displayName");
 if (displayName) {
@@ -14,6 +17,8 @@ createButton.addEventListener("click", () => {
   handleRoomConnection("create");
 });
 
+gsap.registerPlugin(TextPlugin);
+
 function handleRoomConnection(type) {
   let updatedName = inputButton.value;
   if (!updatedName) {
@@ -27,13 +32,28 @@ function handleRoomConnection(type) {
       if (!roomCode) {
         roomcode = askPromptAgain();
       }
-      window.location = `room.html?room=${roomCode}`;
+      leavePageAnimation();
+      setTimeout(() => {
+        window.location = `room.html?room=${roomCode}`;
+      }, 200);
+      
     }
     if (type === "create") {
       roomCode = String(Math.floor(Math.random() * 10000));
-      window.location = `room.html?room=${roomCode}`;
+      leavePageAnimation();
+      setTimeout(() => {
+        window.location = `room.html?room=${roomCode}`;
+      }, 200);
     }
   }
+}
+
+function leavePageAnimation(){
+  gsap.to("#unloading", {
+    height: "100%",
+    ease: "power1.out",
+    duration:0.2
+  })
 }
 function askPromptAgain() {
   newCode = prompt("A room code is required to join a room!");
@@ -47,3 +67,55 @@ function askPromptAgain() {
 function joinRoom() {}
 
 function createRoom() {}
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.to("#loading p", {
+    opacity: 1,
+    duration: 1
+  })
+  gsap.to("#loading p", {
+    duration :2,
+    delay: 1,
+    fontSize: "24px",
+    text: "done, move mouse to enter.",
+  
+    color: "#9829ff",
+    backgroundColor: "transparent",
+    filter: "drop-shadow(0 0 100px white)",
+    onComplete: setIsLoading
+  })
+  
+});
+
+
+document.addEventListener("mousemove", (e) => {
+  if(!isLoading)
+  {
+    mx = e.clientX;
+    my = e.clientY;
+    gsap.to("#loading ",{
+      clipPath: `circle(0% at ${mx}px ${my}px)`,
+      duration : 0.5,
+      onComplete: removeLoading
+    });
+  }
+  
+})
+
+function setIsLoading(){
+  isLoading = false;
+}
+
+function removeLoading(){
+  
+  setTimeout(() => {
+    document.getElementById('loading').style.display = "none";
+  }, 200);
+  
+}
+
+window.addEventListener("beforeunload", () => {
+  console.log("LEFT");
+  alert("leaving");
+  
+});
