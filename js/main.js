@@ -210,9 +210,7 @@ function handleElementsUserSubscribed(participant) {
   document.getElementById("participant-count").value = participants.length;
 }
 
-document.getElementById("logo").addEventListener("click", () => {
-  window.location = "index.html";
-});
+
 
 document.getElementById("add-participant").addEventListener("click", () => {
   console.log("CLICKed");
@@ -247,10 +245,18 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("LOADED");
   setTimeout(() => {
     transitionAnimationIn()
-  }, 100);
+  }, 200);
 });
 
 document.getElementById("create-room-button").addEventListener("click", () => {
+  transitionAnimationOut();
+  setTimeout(() => {
+    window.location = "index.html";
+  }, 200);
+});
+
+
+document.getElementById("logo").addEventListener("click", () => {
   transitionAnimationOut();
   setTimeout(() => {
     window.location = "index.html";
@@ -266,7 +272,7 @@ function transitionAnimationOut(){
     
     height: "100%",
     
-    duration: 0.2
+    duration: 0.3
   });
 }
 

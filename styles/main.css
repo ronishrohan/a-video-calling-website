@@ -280,7 +280,7 @@ p {
   height: 100vh;
   overflow-y: scroll;
   width: 100%;
-  max-width: 25rem;
+  max-width: 24.9rem;
   z-index: 998;
   margin-top: 15px;
 }
@@ -405,7 +405,7 @@ p {
   margin-top: 15px;
   background-color: #150e22;
   justify-content: center;
-
+  overflow-x: hidden;
   left: 0;
   position: fixed;
   overflow-y: auto;
