@@ -49,6 +49,8 @@
 #loading p{
   z-index: 2002;
   opacity: 0;
+  position: absolute;
+  transform: translateY(60vh);
 }
 
 

@@ -246,10 +246,35 @@ document.getElementById('mic-toggle').addEventListener('click', () => {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("LOADED");
   setTimeout(() => {
-    gsap.to("#transition",{
-      height: "0",
-      
-      duration: 0.2
-    });
+    transitionAnimationIn()
   }, 100);
 });
+
+document.getElementById("create-room-button").addEventListener("click", () => {
+  transitionAnimationOut();
+  setTimeout(() => {
+    window.location = "index.html";
+  }, 200);
+});
+
+function transitionAnimationOut(){
+
+  document.getElementById("transition").style.top = "auto";
+  document.getElementById("transition").style.bottom = "0";
+
+  gsap.to("#transition",{
+    
+    height: "100%",
+    
+    duration: 0.2
+  });
+}
+
+function transitionAnimationIn(){
+  gsap.to("#transition",{
+    height: "0",
+    
+    duration: 0.2
+  });
+}
+

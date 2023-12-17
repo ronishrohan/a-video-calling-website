@@ -69,14 +69,18 @@ function joinRoom() {}
 function createRoom() {}
 
 document.addEventListener("DOMContentLoaded", () => {
+  
   gsap.to("#loading p", {
+    transform: "translateY(0)",
     opacity: 1,
+    
     duration: 1
   })
   gsap.to("#loading p", {
     duration :2,
     delay: 1,
     fontSize: "24px",
+    ease: "expo,out",
     text: "done, move mouse to enter.",
   
     color: "#9829ff",
