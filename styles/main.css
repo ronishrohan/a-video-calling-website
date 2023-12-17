@@ -340,7 +340,7 @@ p {
 
   justify-content: center;
   position: absolute;
-
+  z-index: 4005;
   bottom: 0;
   margin-left: 10px;
   font-size: 12px;
@@ -609,4 +609,28 @@ p {
 
 input:focus {
   outline: none;
+}
+
+#disabled{
+  filter: invert(30%) sepia(100%) hue-rotate(200deg) saturate(300%)
+    brightness(50%);
+}
+
+#video-off{
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hwb(246 5% 91%);
+  font-size: 16px;
+  font-weight: 800;
+  color: #746d8d;
+  user-select: none;
+
 }
