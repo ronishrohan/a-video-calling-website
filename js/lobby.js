@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     color: "#9829ff",
     backgroundColor: "transparent",
-    filter: "drop-shadow(0 0 100px white)",
+    
     onComplete: setIsLoading
   })
   
