@@ -32,6 +32,8 @@ const messagesContainer = document.getElementById("messages-holder");
 const database = getDatabase();
 const now = new Date();
 
+var messageNotif = new Audio("../assets/notification_high-intensity.wav")
+
 const searchParams = new URLSearchParams(window.location.search);
 
 gsap.ticker.lagSmoothing(0);
@@ -89,6 +91,7 @@ document.getElementById("send-button").addEventListener("click", () => {
 const inMessage = ref(database, `messages/${ROOMID}/`);
 onChildAdded(inMessage, (data) => {
   if (data.val().name != name) {
+    messageNotif.play();
     let isprev = false;
     
     let indata = data.val();
