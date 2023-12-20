@@ -56,11 +56,13 @@
       <section id="participants-container">
         <div id="participants-header">
           <p>Participants</p>
-          <p id="participant-count">0</p>
+          <p id="participant-count">1</p>
         </div>
         <button id="add-participant">+</button>
         <div id="member-list">
-          <p id="empty-message">theres no one here :(</p>
+          <div class="participant" >
+            <p>user</p>
+          </div>
           
 
         </div>
@@ -117,14 +119,18 @@
         </div>
       </section>
       <section id="chat-container">
-        <div class="message-wrapper">
-          <p class="npc-message">welcome to the room!</p>
+        <div class="messages-container" id="messages-holder" >
+          <div class="message-wrapper">
+            <p class="npc-message">>welcome to the room</p>
+          </div>
+          
         </div>
+        
 
-        <form id="chat-input"">
-            <input type=" text" name="chat" placeholder="send a message..." \>
-          <button><span>></span></button>
-        </form>
+        <div id="chat-input">
+            <input  id="send-input" type="text" name="chat" placeholder="send a message..." \>
+          <button id="send-button" ><span>></span></button>
+        </div>
         
 
       </section>
@@ -133,7 +139,7 @@
 </body>
 <script src="./js/AgoraRTC_N-4.20.0.js" ></script>
 <script src="./js/main.js"></script>
-
+<script type="module" src="js/firebase.js" ></script>
 
 
 </html>

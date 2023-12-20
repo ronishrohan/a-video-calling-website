@@ -1,3 +1,4 @@
+
 let TOKEN;
 
 var client;
@@ -175,9 +176,7 @@ async function subscribe(user, mediaType, userID) {
   }
   document.getElementById("participant-count").textContent =
     participants.length - 1;
-  document
-    .getElementById("empty-message")
-    .style.setProperty("display", "none", "important");
+  
 }
 
 function handleUserPublished(user, mediaType) {
@@ -310,4 +309,8 @@ function transitionAnimationIn() {
 
     duration: 0.4,
   });
+}
+
+function addParticipant(name){
+  player = ``;
 }

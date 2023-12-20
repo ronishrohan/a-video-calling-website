@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "firebase": "^10.7.1",
+    "process": "^0.11.10"
+  }
+}
