@@ -167,7 +167,7 @@ async function subscribe(user, mediaType, userID) {
       .getElementById("remote-streams-container")
       .insertAdjacentHTML("beforeend", player);
     user.videoTrack.play(`player-${userID}`);
-
+    sendBotMessage(`${uid} joined the room`);
 
     handleElementsUserSubscribed(userName);
   }
@@ -290,15 +290,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     transitionAnimationIn();
   }, 400);
-  let botMessage = `<div class="message-wrapper">
-  <p class="npc-message"></p>
-  </div>`
-  document.getElementById("messages-holder").insertAdjacentHTML("beforeend", botMessage)
-  gsap.to(".npc-message", {
-    text: ">welcome to the room",
-    duration: 1.2,
-    delay: 1
-  })
+  sendBotMessage("welcome to the room");
+  
 });
 
 document.getElementById("create-room-button").addEventListener("click", () => {
@@ -314,6 +307,19 @@ document.getElementById("logo").addEventListener("click", () => {
     window.location = "index.html";
   }, 200);
 });
+
+function sendBotMessage(message){
+  let botMessage = `<div class="message-wrapper">
+  <p class="npc-message" ></p>
+  </div>`
+  document.getElementById("messages-holder").insertAdjacentHTML("beforeend", botMessage)
+  let targetElement = Array.from(document.querySelectorAll(".npc-message")).pop()
+  gsap.to(targetElement, {
+    text: `>${message}`,
+    duration: 1.2,
+    delay: 1
+  })
+}
 
 function transitionAnimationOut() {
   document.getElementById("transition").style.top = "auto";

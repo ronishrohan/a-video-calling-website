@@ -251,8 +251,8 @@ p {
 .npc-message {
   user-select: none;
   display: flex;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5%;
   align-items: center;
   opacity: 0.7;
@@ -272,7 +272,7 @@ p {
   padding-top: 10px;
   font-size: 16px;
   padding-left: 5%;
-  opacity: 0.7;
+  
   font-weight: 100;
   margin: 0;
   display: flex;
@@ -280,9 +280,12 @@ p {
 }
 
 .message-time {
+  position: absolute;
+  right: 0;
   font-weight: 100;
   font-size: 12px;
   padding-left: 5%;
+  padding-right: 5%;
 }
 
 .message-wrapper {
