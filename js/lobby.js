@@ -107,6 +107,7 @@ document.addEventListener("mousemove", (e) => {
     gsap.to("#loading ",{
       clipPath: `circle(0% at ${mx}px ${my}px)`,
       duration : 0.8,
+      ease: "power2.out",
       
       onComplete: removeLoading
     });
