@@ -321,8 +321,8 @@ function transitionAnimationOut() {
 
   gsap.to("#transition", {
     height: "100%",
-
-    duration: 0.3,
+    
+    duration: 0.6,
   });
 }
 
