@@ -70,13 +70,18 @@ function joinRoom() {}
 function createRoom() {}
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  gsap.to("#loading", {
+    backgroundColor: "#150e30",
+    duration: 2
+  });
   
   gsap.to("#loading p", {
     transform: "translateY(0)",
     opacity: 1,
     
     duration: 1
-  })
+  });
   gsap.to("#loading p", {
     duration :2,
     delay: 1,
@@ -98,9 +103,11 @@ document.addEventListener("mousemove", (e) => {
   {
     mx = e.clientX;
     my = e.clientY;
+    
     gsap.to("#loading ",{
       clipPath: `circle(0% at ${mx}px ${my}px)`,
-      duration : 0.5,
+      duration : 0.8,
+      
       onComplete: removeLoading
     });
   }
@@ -115,7 +122,7 @@ function removeLoading(){
   
   setTimeout(() => {
     document.getElementById('loading').style.display = "none";
-  }, 200);
+  }, 800);
   
 }
 
