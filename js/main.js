@@ -24,9 +24,11 @@ var remoteUsers = {};
 
 var participants = [];
 
+
+
 name = window.sessionStorage.getItem("user-name");
 console.log(name);
-participants.push(`${name}(you)`);
+
 
 const searchParams = new URLSearchParams(window.location.search);
 
@@ -34,6 +36,9 @@ let ROOMID = searchParams.get("room");
 
 data.channelname = ROOMID;
 data.uid = name;
+
+gsap.registerPlugin(TextPlugin);
+gsap.ticker.lagSmoothing(0);
 
 async function getToken() {
   return fetch(url, {
@@ -163,6 +168,7 @@ async function subscribe(user, mediaType, userID) {
       .insertAdjacentHTML("beforeend", player);
     user.videoTrack.play(`player-${userID}`);
 
+
     handleElementsUserSubscribed(userName);
   }
 
@@ -173,9 +179,13 @@ async function subscribe(user, mediaType, userID) {
   console.log("COOOOOOOOOOOOOOOOO" + inName);
   if (!participants.includes(inName)) {
     participants.push(inName);
+    let participant = `<div class="participant" id="participant-${inName}" >
+    <p>${inName}</p>
+    </div>`
+    document.getElementById("member-list").insertAdjacentHTML("beforeend", participant);
   }
   document.getElementById("participant-count").textContent =
-    participants.length - 1;
+    participants.length;
   
 }
 
@@ -188,12 +198,16 @@ function handleUserPublished(user, mediaType) {
 
 function handleUserUnpublished(user, mediatype) {
   if (mediatype === "video") {
-    console.log(
-      "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA THANKS" + user.uid
-    );
+    
     const id = user.uid;
     delete remoteUsers[id];
     document.getElementById(`remote-stream-${id}`).remove();
+    document.getElementById(`participant-${id}`).remove();
+    delete participants[participants.indexOf(id)];
+    let prevPart = participants;
+    participants = prevPart.filter(n=>n);
+    document.getElementById("participant-count").textContent = participants.length;
+
   }
 }
 
@@ -276,6 +290,15 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     transitionAnimationIn();
   }, 400);
+  let botMessage = `<div class="message-wrapper">
+  <p class="npc-message"></p>
+  </div>`
+  document.getElementById("messages-holder").insertAdjacentHTML("beforeend", botMessage)
+  gsap.to(".npc-message", {
+    text: ">welcome to the room",
+    duration: 1.2,
+    delay: 1
+  })
 });
 
 document.getElementById("create-room-button").addEventListener("click", () => {

@@ -17,6 +17,7 @@ createButton.addEventListener("click", () => {
   handleRoomConnection("create");
 });
 
+gsap.ticker.lagSmoothing(0);
 gsap.registerPlugin(TextPlugin);
 
 function handleRoomConnection(type) {
@@ -123,3 +124,5 @@ window.addEventListener("beforeunload", () => {
   alert("leaving");
   
 });
+
+

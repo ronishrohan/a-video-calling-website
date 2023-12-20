@@ -34,6 +34,8 @@ const now = new Date();
 
 const searchParams = new URLSearchParams(window.location.search);
 
+gsap.ticker.lagSmoothing(0);
+
 let ROOMID = searchParams.get("room");
 
 function sendInput() {
@@ -110,4 +112,15 @@ onChildAdded(inMessage, (data) => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  let participant = `<div class="participant" >
+  <p>${name}(you)</p>
+</div>`
+  document.getElementById("member-list").insertAdjacentHTML("beforeend", participant);
+})
 
+document.getElementById("chat-container").addEventListener("keypress", (e) => {
+  if(e.key == "Enter"){
+    sendInput();
+  }
+})
